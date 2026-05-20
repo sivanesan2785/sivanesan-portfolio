@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sivanesan M - UI/UX Designer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#f8ead2;
+  --paper-soft:#fff7e8;
+  --ink:#231815;
+  --muted:#725d50;
+  --muted-2:#9a7b68;
+  --orange:#e85d2a;
+  --teal:#0c7774;
+  --yellow:#f3b73f;
+  --rose:#cf4568;
+  --line:#2b1a14;
+  --shadow:6px 6px 0 #231815;
+}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(232,93,42,.16), transparent 28rem),
+    radial-gradient(circle at 90% 10%, rgba(12,119,116,.16), transparent 30rem),
+    linear-gradient(rgba(35,24,21,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(35,24,21,.035) 1px, transparent 1px),
+    var(--paper);
+  background-size:auto,auto,28px 28px,28px 28px,auto;
+  color:var(--ink);
+  font-family:"Space Grotesk",sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+::selection{background:var(--yellow);color:var(--ink)}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:14px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:100;
+  width:min(1120px,calc(100% - 28px));
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.72rem .9rem .72rem 1.15rem;
+  background:rgba(255,247,232,.86);
+  border:2px solid var(--line);
+  box-shadow:4px 4px 0 var(--line);
+  backdrop-filter:blur(18px);
+}
+.nav-logo{
+  font-weight:700;
+  font-size:.98rem;
+  text-decoration:none;
+  letter-spacing:.01em;
+}
+.nav-links{
+  display:flex;
+  gap:.35rem;
+  list-style:none;
+}
+.nav-links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:0 .78rem;
+  border-radius:100px;
+  color:var(--muted);
+  font-size:.82rem;
+  font-weight:600;
+  text-decoration:none;
+  transition:background .18s,color .18s;
+}
+.nav-links a:hover{background:rgba(232,93,42,.12);color:var(--ink)}
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  min-height:36px;
+  padding:0 .9rem;
+  background:var(--ink);
+  border:2px solid var(--ink);
+  border-radius:100px;
+  color:var(--paper-soft);
+  font-size:.82rem;
+  font-weight:700;
+  text-decoration:none;
+  transition:background-color .18s,color .18s,transform .18s;
+}
+.nav-cta:hover{
+  background:var(--orange);
+  color:var(--paper-soft);
+  transform:translateY(-1px);
+}
+
+/* SHARED */
+section{padding:7rem 3rem}
+.wrap{width:min(1120px,100%);margin:0 auto}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  margin-bottom:1rem;
+  color:var(--teal);
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.eyebrow::before{
+  content:"";
+  width:10px;
+  height:10px;
+  background:var(--orange);
+  border:2px solid var(--line);
+  border-radius:50%;
+}
+.section-title{
+  font-family:"DM Serif Display",serif;
+  font-size:clamp(2.1rem,5vw,4rem);
+  font-weight:400;
+  line-height:.98;
+  letter-spacing:0;
+}
+.section-copy{
+  max-width:620px;
+  margin-top:1rem;
+  color:var(--muted);
+  font-size:1rem;
+  line-height:1.75;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.55rem;
+  min-height:48px;
+  padding:0 1.15rem;
+  border:2px solid var(--line);
+  border-radius:100px;
+  box-shadow:3px 3px 0 var(--line);
+  font-size:.92rem;
+  font-weight:700;
+  text-decoration:none;
+  transition:transform .18s,box-shadow .18s,background-color .18s,color .18s;
+}
+.btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--line)}
+.btn-primary:hover{background:var(--teal)}
+.btn-secondary:hover{background:var(--yellow);color:var(--ink)}
+.btn-primary{background:var(--orange);color:#fff7e8}
+.btn-secondary{background:var(--paper-soft);color:var(--ink)}
+.btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.4}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:8.7rem 3rem 4rem;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);
+  gap:3rem;
+  align-items:center;
+}
+.availability{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  width:fit-content;
+  margin-bottom:1.3rem;
+  padding:.52rem .82rem;
+  background:var(--paper-soft);
+  border:2px solid var(--line);
+  border-radius:100px;
+  box-shadow:3px 3px 0 var(--line);
+  color:var(--teal);
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.availability span{
+  width:9px;
+  height:9px;
+  background:#30a46c;
+  border:2px solid var(--line);
+  border-radius:50%;
+}
+.hero-title{
+  font-family:"DM Serif Display",serif;
+  font-size:clamp(4rem,11vw,8.8rem);
+  font-weight:400;
+  line-height:.82;
+  letter-spacing:0;
+}
+.hero-title em{
+  display:block;
+  color:var(--orange);
+  font-style:italic;
+}
+.hero-role{
+  margin-top:1.25rem;
+  color:var(--ink);
+  font-size:clamp(1.15rem,2vw,1.65rem);
+  font-weight:700;
+}
+.hero-desc{
+  max-width:650px;
+  margin-top:1rem;
+  color:var(--muted);
+  font-size:1.08rem;
+  line-height:1.75;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
+.hero-note{
+  margin-top:1.15rem;
+  color:var(--muted-2);
+  font-size:.86rem;
+}
+.profile-card{
+  position:relative;
+  background:var(--paper-soft);
+  border:2px solid var(--line);
+  box-shadow:var(--shadow);
+  padding:1rem 1rem 1.15rem;
+  transform:rotate(1.5deg);
+}
+.profile-card::before{
+  content:"";
+  position:absolute;
+  top:-18px;
+  left:30px;
+  width:84px;
+  height:28px;
+  background:rgba(243,183,63,.7);
+  border:2px solid var(--line);
+  transform:rotate(-7deg);
+}
+.profile-photo{
+  position:relative;
+  aspect-ratio:4/5;
+  border:2px solid var(--line);
+  background:var(--yellow);
+  overflow:hidden;
+}
+.profile-photo::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:
+    linear-gradient(135deg, rgba(232,93,42,.14), transparent 44%),
+    radial-gradient(circle at 72% 12%, rgba(243,183,63,.25), transparent 18rem),
+    repeating-linear-gradient(0deg, rgba(35,24,21,.04) 0 1px, transparent 1px 4px);
+  mix-blend-mode:multiply;
+}
+.profile-photo::after{
+  content:"";
+  position:absolute;
+  inset:12px;
+  z-index:3;
+  border:2px solid rgba(255,247,232,.76);
+  pointer-events:none;
+}
+.profile-photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:50% 18%;
+  filter:saturate(.9) contrast(1.08) sepia(.18) brightness(1.02);
+}
+.profile-stamp{
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  z-index:4;
+  display:inline-flex;
+  align-items:center;
+  min-height:38px;
+  padding:0 .82rem;
+  background:var(--orange);
+  border:2px solid var(--line);
+  color:var(--paper-soft);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:3px 3px 0 var(--line);
+}
+.profile-caption{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1rem .1rem 0;
+  color:var(--muted);
+  font-size:.84rem;
+  font-weight:600;
+}
+
+/* MARQUEE */
+.marquee-section{
+  overflow:hidden;
+  border-block:2px solid var(--line);
+  background:var(--ink);
+  color:var(--paper-soft);
+}
+.marquee-track{
+  display:flex;
+  width:max-content;
+  animation:marquee 32s linear infinite;
+}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.m-item{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  padding:1rem 1.5rem;
+  font-size:.86rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.m-dot{width:8px;height:8px;background:var(--yellow);border-radius:50%}
+
+/* WHY HIRE */
+.hire-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-top:2.5rem;
+}
+.hire-card,.project-card,.tool-row,.process-item{
+  background:var(--paper-soft);
+  border:2px solid var(--line);
+  box-shadow:4px 4px 0 var(--line);
+}
+.hire-card{
+  padding:1.4rem;
+  min-height:210px;
+}
+.hire-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  margin-bottom:1.2rem;
+  background:var(--yellow);
+  border:2px solid var(--line);
+  border-radius:50%;
+  font-weight:800;
+}
+.hire-card h3{
+  margin-bottom:.65rem;
+  font-size:1.05rem;
+}
+.hire-card p{
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.65;
+}
+
+/* WORK */
+#work{background:rgba(255,247,232,.54)}
+.work-head{
+  display:flex;
+  justify-content:space-between;
+  gap:2rem;
+  align-items:end;
+}
+.work-note{
+  max-width:360px;
+  color:var(--muted);
+  font-size:.95rem;
+  line-height:1.65;
+}
+.project-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:1rem;
+  margin-top:2.8rem;
+}
+.project-card{
+  min-height:390px;
+  padding:1.2rem;
+  display:flex;
+  flex-direction:column;
+  transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease;
+}
+.project-card:hover{
+  transform:translate(-3px,-3px);
+  box-shadow:8px 8px 0 var(--line);
+  background:#fffaf0;
+}
+.project-card.featured{grid-row:span 2}
+.project-thumb{
+  min-height:210px;
+  border:2px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(35,24,21,.12) 1px, transparent 1px),
+    linear-gradient(rgba(35,24,21,.12) 1px, transparent 1px),
+    var(--yellow);
+  background-size:22px 22px;
+  position:relative;
+  overflow:hidden;
+  transition:background-color .22s ease,transform .22s ease;
+}
+.project-card:hover .project-thumb{
+  transform:rotate(-1deg);
+  background-color:var(--orange);
+}
+.project-thumb::before,.project-thumb::after{
+  content:"";
+  position:absolute;
+  border:2px solid var(--line);
+  background:var(--paper-soft);
+  transition:transform .22s ease,background-color .22s ease;
+}
+.project-thumb::before{left:8%;top:16%;width:52%;height:52%;box-shadow:4px 4px 0 var(--line)}
+.project-thumb::after{right:9%;bottom:13%;width:34%;height:34%;background:var(--teal)}
+.project-card:hover .project-thumb::before{transform:translate(5px,-5px)}
+.project-card:hover .project-thumb::after{transform:translate(-5px,5px);background:var(--yellow)}
+.thumb-alt{background-color:#f2a8b8}
+.thumb-dark{background-color:#7bc4bd}
+.project-body{padding:1.25rem .2rem .1rem}
+.tag-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.85rem}
+.tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:0 .65rem;
+  border:2px solid var(--line);
+  border-radius:100px;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.project-body h3{
+  font-family:"DM Serif Display",serif;
+  font-size:1.85rem;
+  font-weight:400;
+  line-height:1.02;
+}
+.project-body p{
+  margin-top:.75rem;
+  color:var(--muted);
+  font-size:.94rem;
+  line-height:1.65;
+}
+.project-link{
+  display:inline-flex;
+  width:fit-content;
+  margin-top:1rem;
+  color:var(--teal);
+  font-weight:800;
+  text-decoration:none;
+  border-bottom:2px solid currentColor;
+  transition:color .18s ease,gap .18s ease,transform .18s ease;
+}
+.project-card:hover .project-link{
+  color:var(--orange);
+  transform:translateX(4px);
+}
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:3rem;
+  margin-top:2.8rem;
+}
+.about-copy{
+  background:var(--paper-soft);
+  border:2px solid var(--line);
+  box-shadow:var(--shadow);
+  padding:2rem;
+}
+.about-copy p{
+  color:var(--muted);
+  font-size:1rem;
+  line-height:1.85;
+  margin-bottom:1.15rem;
+}
+.about-copy strong{color:var(--ink)}
+.skills-wrap{margin-top:1.6rem}
+.skills-label,.tools-label{
+  color:var(--teal);
+  font-size:.76rem;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-bottom:.85rem;
+}
+.skills-pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.skill{
+  padding:.48rem .82rem;
+  background:var(--yellow);
+  border:2px solid var(--line);
+  border-radius:100px;
+  color:var(--ink);
+  font-size:.82rem;
+  font-weight:700;
+}
+.skill:nth-child(2n){background:var(--paper)}
+.skill:nth-child(3n){background:#f3a0b5}
+.tool-row{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:1rem;
+  margin-bottom:.8rem;
+}
+.tool-logo{
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  border:2px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--ink);
+  color:var(--paper-soft);
+  font-weight:800;
+}
+.tool-text-name{font-weight:800}
+.tool-text-desc{margin-top:.15rem;color:var(--muted);font-size:.84rem;line-height:1.45}
+
+/* PROCESS */
+#process{background:rgba(232,93,42,.08)}
+.process-list{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+  margin-top:2.8rem;
+}
+.process-item{
+  padding:1.35rem;
+  min-height:260px;
+}
+.pi-num{
+  display:block;
+  margin-bottom:1.5rem;
+  font-family:"DM Serif Display",serif;
+  color:var(--orange);
+  font-size:2.5rem;
+  line-height:1;
+}
+.pi-title{font-size:1rem;font-weight:800;margin-bottom:.7rem}
+.pi-desc{color:var(--muted);font-size:.88rem;line-height:1.65}
+
+/* RESUME STRIP */
+.resume-strip{
+  border-block:2px solid var(--line);
+  background:var(--teal);
+  color:var(--paper-soft);
+  padding:2.3rem 3rem;
+}
+.resume-inner{
+  width:min(1120px,100%);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+}
+.resume-strip h2{
+  font-family:"DM Serif Display",serif;
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:400;
+}
+.resume-strip p{max-width:520px;margin-top:.35rem;color:rgba(255,247,232,.78);line-height:1.6}
+
+/* CONTACT */
+#contact{text-align:center}
+.contact-card{
+  width:min(880px,100%);
+  margin:0 auto;
+  padding:3rem 2rem;
+  background:var(--paper-soft);
+  border:2px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.contact-title{
+  font-family:"DM Serif Display",serif;
+  font-size:clamp(2.6rem,6vw,5rem);
+  font-weight:400;
+  line-height:.95;
+}
+.contact-title span{color:var(--orange)}
+.contact-body{
+  max-width:520px;
+  margin:1rem auto 2rem;
+  color:var(--muted);
+  line-height:1.75;
+}
+.social-bar{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.7rem;
+  margin-top:1.2rem;
+}
+.social-btn{
+  min-height:42px;
+  padding:0 1rem;
+  display:inline-flex;
+  align-items:center;
+  border:2px solid var(--line);
+  border-radius:100px;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:.84rem;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:3px 3px 0 var(--line);
+  transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease;
+}
+.social-btn:hover{
+  background:var(--yellow);
+  color:var(--ink);
+  transform:translate(2px,2px);
+  box-shadow:1px 1px 0 var(--line);
+}
+
+footer{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  padding:1.5rem 3rem 2rem;
+  color:var(--muted);
+  font-size:.86rem;
+}
+.foot-links{display:flex;gap:1.1rem}
+.foot-links a{font-weight:700;text-decoration:none}
+
+/* REVEAL */
+.reveal{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .65s ease,transform .65s ease;
+}
+.reveal.in{opacity:1;transform:translateY(0)}
+.project-card.reveal.in{
+  transition:opacity .65s ease,transform .22s ease,box-shadow .22s ease,background-color .22s ease;
+}
+
+@media(max-width:960px){
+  nav{top:10px}
+  .nav-links{display:none}
+  #hero{padding:8.2rem 1.25rem 3.5rem}
+  section{padding:5.5rem 1.25rem}
+  .hero-grid,.about-grid,.project-grid{grid-template-columns:1fr}
+  .profile-card{transform:none}
+  .hire-grid,.process-list{grid-template-columns:1fr 1fr}
+  .work-head,.resume-inner{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:620px){
+  nav{width:calc(100% - 20px);padding:.65rem .7rem}
+  .nav-cta{font-size:.75rem;padding:0 .7rem}
+  .hero-title{font-size:clamp(3.4rem,22vw,5.4rem)}
+  .hero-actions{flex-direction:column}
+  .btn{width:100%}
+  .profile-photo{aspect-ratio:4/5}
+  .hire-grid,.process-list{grid-template-columns:1fr}
+  .project-card{min-height:auto}
+  .contact-card{padding:2.2rem 1rem}
+  footer{padding-inline:1.25rem;flex-direction:column;text-align:center;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Sivanesan M</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<section id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="availability"><span></span>Open to UI/UX roles</div>
+      <h1 class="hero-title">Sivanesan <em>M.</em></h1>
+      <p class="hero-role">Fresher UI/UX Designer focused on clear, useful digital products.</p>
+      <p class="hero-desc">
+        I design thoughtful interfaces, map user journeys, build clean prototypes, and turn confusing product flows into simple experiences. Currently looking for an entry-level UI/UX role where I can learn fast and contribute with care.
+      </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">
+          View Projects
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+      </div>
+      <p class="hero-note">Based in Tamil Nadu, India - available for internships, junior roles, and freelance projects.</p>
+    </div>
+
+    <div class="profile-card" aria-label="Retro profile card">
+      <div class="profile-photo">
+        <img src="assets/sivanesan-profile.jpeg" alt="Portrait of Sivanesan M">
+        <span class="profile-stamp">Available</span>
+      </div>
+      <div class="profile-caption">
+        <span>UI/UX Designer</span>
+        <span>2026 Portfolio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="m-item"><span class="m-dot"></span>User Research</span>
+    <span class="m-item">Wireframes</span>
+    <span class="m-item"><span class="m-dot"></span>Figma</span>
+    <span class="m-item">Prototypes</span>
+    <span class="m-item"><span class="m-dot"></span>Usability Testing</span>
+    <span class="m-item">Design Systems</span>
+    <span class="m-item"><span class="m-dot"></span>Interaction Design</span>
+    <span class="m-item">Accessibility</span>
+    <span class="m-item"><span class="m-dot"></span>User Research</span>
+    <span class="m-item">Wireframes</span>
+    <span class="m-item"><span class="m-dot"></span>Figma</span>
+    <span class="m-item">Prototypes</span>
+    <span class="m-item"><span class="m-dot"></span>Usability Testing</span>
+    <span class="m-item">Design Systems</span>
+    <span class="m-item"><span class="m-dot"></span>Interaction Design</span>
+    <span class="m-item">Accessibility</span>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="work-head reveal">
+      <div>
+        <p class="eyebrow">Selected Work</p>
+        <h2 class="section-title">Case studies that show my design process.</h2>
+      </div>
+      <p class="work-note">Replace these placeholders with your strongest student, practice, internship, or redesign projects. Each card is written to help recruiters understand your thinking, not just the final screen.</p>
+    </div>
+
+    <div class="project-grid">
+      <article class="project-card featured reveal">
+        <div class="project-thumb"></div>
+        <div class="project-body">
+          <div class="tag-row">
+            <span class="tag">Mobile App</span>
+            <span class="tag">UX Research</span>
+            <span class="tag">Prototype</span>
+          </div>
+          <h3>Food Ordering App Redesign</h3>
+          <p>Improved the ordering flow by reducing decision friction, redesigning category discovery, and building a clearer checkout experience for first-time users.</p>
+          <a href="#" class="project-link">Case study coming soon</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-thumb thumb-alt"></div>
+        <div class="project-body">
+          <div class="tag-row">
+            <span class="tag">Web App</span>
+            <span class="tag">Dashboard</span>
+          </div>
+          <h3>Student Dashboard UI</h3>
+          <p>Designed a dashboard concept that helps students track tasks, deadlines, courses, and progress without visual clutter.</p>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-thumb thumb-dark"></div>
+        <div class="project-body">
+          <div class="tag-row">
+            <span class="tag">Branding</span>
+            <span class="tag">Design System</span>
+          </div>
+          <h3>Local Service Website</h3>
+          <p>Created a responsive landing experience with a simple content structure, clear service hierarchy, and accessible UI patterns.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="hire">
+  <div class="wrap">
+    <p class="eyebrow reveal">Why Hire Me</p>
+    <h2 class="section-title reveal">Fresh perspective, practical design habits.</h2>
+    <p class="section-copy reveal">
+      As a fresher, I bring strong fundamentals, curiosity, and the patience to understand problems before designing screens. I am ready to support product teams with research, UI exploration, prototypes, and design documentation.
+    </p>
+    <div class="hire-grid">
+      <article class="hire-card reveal">
+        <span class="hire-num">1</span>
+        <h3>Research-first thinking</h3>
+        <p>I start with users, competitors, goals, and pain points so the final UI is connected to a real problem.</p>
+      </article>
+      <article class="hire-card reveal">
+        <span class="hire-num">2</span>
+        <h3>Clean visual systems</h3>
+        <p>I care about spacing, typography, consistency, accessibility, and reusable components in Figma.</p>
+      </article>
+      <article class="hire-card reveal">
+        <span class="hire-num">3</span>
+        <h3>Ready to learn fast</h3>
+        <p>I am comfortable taking feedback, iterating quickly, and improving designs through critique and testing.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow reveal">About</p>
+    <h2 class="section-title reveal">Designing with purpose, clarity, and patience.</h2>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>
+          Hi, I am <strong>Sivanesan M</strong>, a UI/UX Designer from Tamil Nadu, India. I enjoy turning rough ideas into interfaces that feel simple, calm, and useful.
+        </p>
+        <p>
+          My process is grounded in <strong>curiosity, research, and iteration</strong>. I like understanding the user journey, identifying where people get stuck, and creating screens that support their next step clearly.
+        </p>
+        <p>
+          I am a fresher with a strong foundation in UI/UX principles, and I am actively building case studies to show how I think, test, and improve. I believe good design is honest, intentional, and human.
+        </p>
+
+        <div class="skills-wrap">
+          <p class="skills-label">Core Skills</p>
+          <div class="skills-pills">
+            <span class="skill">User Research</span>
+            <span class="skill">Wireframing</span>
+            <span class="skill">Prototyping</span>
+            <span class="skill">Interaction Design</span>
+            <span class="skill">Usability Testing</span>
+            <span class="skill">Design Systems</span>
+            <span class="skill">Typography</span>
+            <span class="skill">Accessibility</span>
+            <span class="skill">HTML / CSS Basics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-col reveal">
+        <p class="tools-label">Tools I Work With</p>
+        <div class="tool-row">
+          <div class="tool-logo">Fi</div>
+          <div>
+            <div class="tool-text-name">Figma</div>
+            <div class="tool-text-desc">UI screens, components, clickable prototypes, and design handoff.</div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-logo">Xd</div>
+          <div>
+            <div class="tool-text-name">Adobe XD</div>
+            <div class="tool-text-desc">Wireframes, flows, and interactive prototype practice.</div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-logo">Ai</div>
+          <div>
+            <div class="tool-text-name">Adobe Illustrator</div>
+            <div class="tool-text-desc">Vector assets, icons, and visual exploration.</div>
+          </div>
+        </div>
+        <div class="tool-row">
+          <div class="tool-logo">No</div>
+          <div>
+            <div class="tool-text-name">Notion</div>
+            <div class="tool-text-desc">Research notes, project planning, and case study outlines.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <p class="eyebrow reveal">Process</p>
+    <h2 class="section-title reveal">How I approach every design problem.</h2>
+    <div class="process-list">
+      <article class="process-item reveal">
+        <span class="pi-num">01</span>
+        <h3 class="pi-title">Discover</h3>
+        <p class="pi-desc">Understand the user, business goal, competitors, and existing pain points before designing.</p>
+      </article>
+      <article class="process-item reveal">
+        <span class="pi-num">02</span>
+        <h3 class="pi-title">Define</h3>
+        <p class="pi-desc">Convert research into user flows, problem statements, task priorities, and content structure.</p>
+      </article>
+      <article class="process-item reveal">
+        <span class="pi-num">03</span>
+        <h3 class="pi-title">Design</h3>
+        <p class="pi-desc">Create wireframes, visual directions, responsive screens, components, and interactive prototypes.</p>
+      </article>
+      <article class="process-item reveal">
+        <span class="pi-num">04</span>
+        <h3 class="pi-title">Test</h3>
+        <p class="pi-desc">Improve the design through feedback, usability checks, and clear handoff documentation.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="resume-strip">
+  <div class="resume-inner">
+    <div>
+      <h2>Looking for a junior UI/UX opportunity.</h2>
+      <p>I can support research, wireframes, UI design, prototypes, design systems, and documentation while growing inside a product team.</p>
+    </div>
+    <a href="#contact" class="btn btn-secondary">Start a Conversation</a>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="contact-card reveal">
+    <p class="eyebrow" style="justify-content:center">Contact</p>
+    <h2 class="contact-title">Let us build something clear<span>.</span></h2>
+    <p class="contact-body">
+      I am open to internships, junior UI/UX roles, freelance projects, and portfolio feedback. Send a message and I will get back to you.
+    </p>
+    <a href="mailto:sivanesanmuniraj@gmail.com" class="btn btn-primary">sivanesanmuniraj@gmail.com</a>
+    <div class="social-bar">
+      <a href="https://www.linkedin.com/in/sivanesan27/" class="social-btn" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" class="social-btn">Behance</a>
+      <a href="#" class="social-btn">Dribbble</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Sivanesan M. Designed for UI/UX opportunities.</p>
+  <div class="foot-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('in');
+  });
+}, { threshold: 0.14 });
+
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
